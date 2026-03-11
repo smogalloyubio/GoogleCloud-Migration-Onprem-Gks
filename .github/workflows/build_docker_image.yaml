@@ -42,7 +42,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: ecommerce-app/Dockerfile
-          failure-threshold: warning
+          ignore: DL3018
+          failure-threshold: error
 
 
   build_docker:
