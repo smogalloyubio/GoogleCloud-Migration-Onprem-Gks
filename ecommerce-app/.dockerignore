@@ -8,3 +8,8 @@ README.md
 .DS_Store
 .vscode
 coverage
+kubernates
+bitcointrading-app
+kind-mycluster2-kubeconfig.yaml
+.eslintcache
+Dockerfile
