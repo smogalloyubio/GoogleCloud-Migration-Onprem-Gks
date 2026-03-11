@@ -43,7 +43,7 @@ jobs:
         with:
           dockerfile: ecommerce-app/Dockerfile
           ignore: DL3018
-          failure-threshold: error
+          failure-threshold: error 
 
 
   build_docker:
