@@ -1,22 +1,25 @@
-# Stage 1: Build React app
-FROM node:18-alpine AS build
+
+FROM node:20-alpine3.18 AS build
+
+
+RUN apk add --no-cache bash curl zlib-dev python3 make g++
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+
 COPY package*.json ./
 
-# Install dependencies including devDependencies
+
 RUN npm install
 
-# Copy only necessary source files
+
 COPY src ./src
 COPY public ./public
 
-# Build React app
+
 RUN npm run build
 
-# Stage 2: Serve with Nginx
+
 FROM nginx:alpine
 
 # Copy build output to Nginx html folder
