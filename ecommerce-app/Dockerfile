@@ -1,7 +1,5 @@
 
-FROM node:20-alpine3.18 AS build
-
-
+FROM alpine:3.18.3 AS build 
 RUN apk add --no-cache bash curl zlib-dev python3 make g++
 
 WORKDIR /app
