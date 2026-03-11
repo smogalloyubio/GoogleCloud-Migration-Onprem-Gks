@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+      - name: minio
+        image: minio/minio:latest
+        args:
+          - server
+          - /data
+          - --console-address
+          - ":9001"
+        ports:
+        - containerPort: 9000
+        - containerPort: 9001 # <--- ADD THIS PORT
+        env: 
+          - name: VAULT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: vault-token
+                key: token
+          - name: VAULT_ADDR
+            value: "http://vault.vault-dev.svc.cluster.local:8200"
+
+         
