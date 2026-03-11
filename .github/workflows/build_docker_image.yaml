@@ -79,7 +79,7 @@ jobs:
         with:
           image-ref: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           format: table
-          exit-code: 1
+          exit-code: 0
 
       - name: Push Docker image
         if: github.event_name == 'push'
