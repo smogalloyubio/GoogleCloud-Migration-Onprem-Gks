@@ -6,9 +6,14 @@ resources:
 
 images:
   - name: rukevweubio/ecommerce-app
+
+
     newName: rukevweubio/ecommerce-app
     newTag: latest
 
 replicas:
   - name: ecommerce-app
     count: 2
+
+
+namePrefix: dev-
